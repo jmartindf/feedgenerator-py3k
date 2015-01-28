@@ -280,7 +280,7 @@ class Rss201rev2Feed(RssFeed):
         if item['comments'] is not None:
             handler.addQuickElement("comments", item['comments'])
         if item['unique_id'] is not None:
-            handler.addQuickElement("guid", item['unique_id'])
+          handler.addQuickElement("guid", item['unique_id'], {'isPermaLink':'false'} if not getattr(item,'id_is_permalink',False) else None)
         if item['ttl'] is not None:
             handler.addQuickElement("ttl", item['ttl'])
 
